@@ -1,3 +1,4 @@
+const path=require('path')
 const express = require('express')
 const fs = require('fs')
 const bodyParser = require('body-parser')
@@ -48,6 +49,10 @@ app.use(purchaseroutes)
 app.use(premiumroutes)
 
 app.use(fproutes)
+
+app.use((req,res)=>{
+    res.sendFile(path.join(__dirname, `front-end/${req.url}`))
+})
 
 User.hasMany(FilesDownloaded)
 FilesDownloaded.belongsTo(User)
