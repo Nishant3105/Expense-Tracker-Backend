@@ -3,9 +3,9 @@ const express = require('express')
 const fs = require('fs')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const helmet = require('helmet')
-const morgan = require('morgan')
-const compression = require('compression')
+//const helmet = require('helmet')
+//const morgan = require('morgan')
+//const compression = require('compression')
 
 const jwt=require('jsonwebtoken')
 
@@ -32,9 +32,9 @@ const app = express()
 const accessLogStream = fs.createWriteStream(('access.log'),{flag : 'a'})
 
 app.use(cors())
-app.use(helmet());
-app.use(compression());
-app.use(morgan('combined',{stream:accessLogStream}))
+//app.use(helmet());
+//app.use(compression());
+//app.use(morgan('combined',{stream:accessLogStream}))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
